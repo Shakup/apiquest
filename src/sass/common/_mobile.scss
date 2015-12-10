@@ -1,0 +1,19 @@
+// XS
+@media screen and (max-width: $device-extrasmall) {
+	
+}
+
+// S
+@media screen and (min-width: $device-extrasmall + 1) and (max-width: $device-small) {
+	
+}
+
+// M
+@media screen and (min-width: $device-small + 1) and (max-width: $device-medium) {
+	
+}
+
+// L
+@media screen and (min-width: $device-medium + 1) and (max-width: $device-large) {
+	
+}

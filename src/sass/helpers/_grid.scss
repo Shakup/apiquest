@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Advanced Grid System
+   ========================================================================== */
+
+$grid-columns: 12;
+
+.row-x{
+	flex-direction: row;
+}
+
+.row-y{
+	flex-direction: column;
+}
+
+.row-y,
+.row-x,
+.row{
+	display: flex;
+	flex-wrap: wrap;
+
+	&.no-wrap{
+		flex-wrap: nowrap;
+	}
+
+	&.justify-start{
+		justify-content: flex-start;
+	}
+
+	&.justify-end{
+		justify-content: flex-end;
+	}
+
+	&.justify-center{
+		justify-content: center;
+	}
+
+	&.space-around{
+		justify-content: space-around;
+	}
+
+	&.space-between{
+		justify-content: space-between;
+	}
+
+	&.align-start{
+		align-items: flex-start;
+	}
+
+	&.align-end{
+		align-items: flex-end;
+	}
+
+	&.align-center{
+		align-items: center;
+	}
+
+	&.align-stretch{
+		align-items: stretch;
+	}
+}
+
+[class^="cell-"]{
+	&.align-start{
+		align-self: flex-start;
+	}
+
+	&.align-center{
+		align-self: flex-center;
+	}
+
+	&.align-end{
+		align-self: flex-end;
+	}
+}
+
+@mixin cell-hide{
+	display: none;
+}
+
+@mixin cell-show{
+	display: flex;
+}
+
+@mixin cell-auto{
+	flex: 1;
+}
+
+@mixin gen-columns($size: ''){
+	@for $i from 1 through $grid-columns{
+		
+		@if $size == '' {
+			.cell-#{$i}{
+				width: $i / $grid-columns * 100%;			
+			}
+		}
+		@else{
+			.cell-#{$size}-#{$i}{
+				width: $i / $grid-columns * 100%;
+			}
+		}
+	}
+}
+
+@include gen-columns();
+.cell-hide{ @include cell-hide; }
+.cell-show{ @include cell-show; }
+.cell-auto{ @include cell-auto; }
+
+$breakpoints : $device-extrasmall $device-small $device-medium $device-large;
+$device-prefixes : xs s m l;
+
+@for $i from 1 through length( $device-prefixes ) {
+	$device-prefix   : nth($device-prefixes, $i);
+
+	@if $i == 1 {
+
+		$breakpoint : nth($breakpoints, $i);
+
+		@media (max-width: $breakpoint) {
+			.cell-#{$device-prefix}-hide{ @include cell-hide; }
+			.cell-#{$device-prefix}-show{ @include cell-show; }
+			.cell-#{$device-prefix}-auto{ @include cell-auto; }
+			@include gen-columns( $device-prefix );	
+		}
+
+	} @else {
+
+		$breakpoint-from : nth( $breakpoints, ($i - 1) );
+		$breakpoint-to   : nth( $breakpoints, $i );
+
+		@media (min-width: $breakpoint-from + 1) and (max-width: $breakpoint-to) {
+			.cell-#{$device-prefix}-hide{ @include cell-hide; }
+			.cell-#{$device-prefix}-show{ @include cell-show; }
+			.cell-#{$device-prefix}-auto{ @include cell-auto; }
+			@include gen-columns($device-prefix);
+		}
+
+	}
+}

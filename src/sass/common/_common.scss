@@ -1,0 +1,62 @@
+body{
+	font-family: $font-regular;
+	font-size: 16px;
+	line-height: 1.5;
+	color: $color-font;
+	background-color: $color-bg-body;
+}
+
+a,
+button{
+	cursor: pointer;
+}
+
+h1{
+	@extend %no-select;
+}
+
+.link{
+	transition: color 350ms ease;
+	color: $color-link;
+
+	&:hover{
+		text-decoration: none;
+		color: $color-link-hover;
+	}
+}
+
+@mixin ghost-button{
+	display: inline-block;
+	text-align: center;
+	padding: 0 16px;
+	border: 1px solid $color-link;
+	opacity: .6;
+	transition: opacity 350ms ease;
+	cursor: pointer;
+	outline: none;
+	font-size: .8rem;
+	text-transform: uppercase;
+	color: white;
+
+	&:hover{
+		opacity: 1;
+		text-decoration: none;
+	}
+}
+
+.ghost-button{
+	@include ghost-button;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 17px;
+	letter-spacing: 1px;
+}
+
+.ghost-button-bld{
+	@include ghost-button;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 20px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
