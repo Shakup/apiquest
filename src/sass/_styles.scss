@@ -1,10 +1,11 @@
+.app-layout{
+	min-height: 100vh;
+}
+
 .app-header{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	background-color: $color-blue;
-	height: 60px;
+	background-color: $color-blue-hover;
+	//background-color: $color-blue;
+	height: 4em;
 }
 
 .header-logo{
@@ -12,4 +13,20 @@
 	font-weight: bold;
 	padding: 0 .5em;
 	color: $color-bg-body;
+}
+
+.frm-request{
+	margin: 1em;
+}
+
+.frm-request-url{
+	flex: 1;
+	margin: 0 1em;
+}
+
+.frm-request-submit{
+	svg{
+		display: block;
+		margin-left: 3px;
+	}
 }

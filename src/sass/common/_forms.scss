@@ -4,12 +4,109 @@ input[type="email"]{
 	&:invalid {
 		box-shadow: none;
 	}
+}
 
-	&:-moz-submit-invalid {
-		box-shadow: none;
+@mixin button{
+	height: 2.5em;
+	padding: 0 1em;
+	border: none;
+	color: $color-bg-body;
+	width: auto;
+	height: 2.5em;
+	font-family: $font-bold;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 3px;
+	outline: none;
+	transition: all 350ms ease;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.button-blue{
+	@include button;
+	background-color: $color-blue;
+
+	&:hover{
+		background-color: $color-blue-hover;
 	}
+}
 
-	&:-moz-ui-invalid {
-		box-shadow:none;
+@mixin ghost-button{
+	display: inline-block;
+	text-align: center;
+	padding: 0 16px;
+	border: 1px solid $color-link;
+	opacity: .6;
+	transition: opacity 350ms ease;
+	cursor: pointer;
+	outline: none;
+	font-size: .8rem;
+	text-transform: uppercase;
+	color: white;
+
+	&:hover{
+		opacity: 1;
+		text-decoration: none;
+	}
+}
+
+.ghost-button{
+	@include ghost-button;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 17px;
+	letter-spacing: 1px;
+}
+
+.ghost-button-bld{
+	@include ghost-button;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 20px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.select {
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='512px' height='316.375px' viewBox='0 0 512 316.375'><path d='M60.375,0L256,195.625L451.625,0L512,60.375l-256,256l-256-256L60.375,0z' fill='#fff'/></svg>");
+	background-color: $color-blue;
+	background-repeat: no-repeat;
+	background-position: right 10px top 13px;
+	background-size: 16px 16px;
+	color: $color-bg-body;
+	padding: 0 2em .0 1em;
+	width: auto;
+	height: 2.5em;
+	font-family: $font-bold;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 3px;
+	-webkit-appearance: none;
+	appearance: none;
+	border: 0;
+	outline: none;
+	transition: all 350ms ease;
+	cursor: pointer;
+
+	&:hover{
+		background-color: $color-blue-hover;
+	}
+}
+
+.input-text{
+	height: 2.5rem;
+	padding: 0 .5rem;
+	border: 1px solid $color-border;
+	background-color: white;
+	border-radius: 3px;
+	transition: all 350ms ease;
+	font-family: $font-classic;
+	font-size: .8em;
+	color: $color-font;
+	position: relative;
+
+	&:focus{
+		border-color: $color-border-hover;
 	}
 }

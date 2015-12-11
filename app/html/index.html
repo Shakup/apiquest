@@ -7,13 +7,37 @@
 	<script src="../assets/js/app.js" async></script>
 </head>
 <body>
+<div class="app-layout row-y">
 
 	<header class="app-header row-x align-center">
-		
 		<h1 class="header-logo">APIQuest</h1>
-
 	</header>
 
+
+	<form id="frm-request" class="frm-request row-x align-center">
+		
+		<select id="frm-request-method" class="select">
+			<option value="GET" selected="selected">GET</option>
+			<option value="POST">POST</option>
+			<option value="UPDATE">UPDATE</option>
+			<option value="DELETE">DELETE</option>
+		</select>
+
+		<input type="text" id="frm-request-url" class="frm-request-url input-text" data-invalid="This field is required" required>
+
+		<button type="submit" id="frm-request-submit" class="frm-request-submit button-blue">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 1000 966' height="16">
+				<path d="M0 996l0-992l501 496zm0 0l501-496 134 133-202 117-433 250l0-4zm0-992l0-4l433 250 202 117-134 133zm501 496l134-133 231 133-231 133z" fill="#ffffff"/>
+			</svg>
+		</button>
+
+	</form>
+
+	<div class="cell-auto">
+		jhgjhg
+	</div>
+
+</div>
 
 </body>
 </html>
